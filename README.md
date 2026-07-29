@@ -34,3 +34,41 @@ mysql-learning-journey/
 │   └── day-07.md
 │
 ```
+
+
+## 📅 Learning Progress
+
+| Week | Topics | Status |
+|------|--------|--------|
+| Week 1 | MySQL Fundamentals | 🚧 In Progress |
+| Week 2 | Coming Soon | ⏳ |
+| Week 3 | Coming Soon | ⏳ |
+| Week 4 | Coming Soon | ⏳ |
+| Week 5 | Coming Soon | ⏳ |
+| Week 6 | Coming Soon | ⏳ |
+| Week 7 | Coming Soon | ⏳ |
+
+
+## 📚 Topics Covered
+
+### Week 1
+- Database Fundamentals
+- DBMS & RDBMS
+- Introduction to MySQL
+- MySQL Server & Workbench
+- CREATE DATABASE
+- CREATE TABLE
+- Data Types
+- PRIMARY KEY
+- AUTO_INCREMENT
+- INSERT
+- SELECT
+- WHERE
+- ORDER BY
+- UPDATE
+- DELETE
+- Aggregate Functions
+- GROUP BY
+- HAVING
+
+> More topics will be added as I continue my learning journey.
