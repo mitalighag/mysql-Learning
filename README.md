@@ -1,2 +1,36 @@
-# mysql-Learning
-📚 A structured 7-week MySQL learning journey documenting concepts, SQL queries, practice exercises, and mini projects as part of my Full-Stack Java Development learning path.
+# MySQL Learning Journey 🚀
+
+Welcome to my MySQL Learning Journey!
+
+This repository documents my progress as I learn MySQL from the ground up as part of my Full-Stack Java Development journey.
+
+Rather than just collecting notes, this repository is a structured record of concepts, SQL queries, practice exercises, and mini projects that reflect my understanding and growth.
+
+---
+## 🎯 Learning Goals
+
+- Learn MySQL from beginner to advanced.
+- Understand relational database concepts.
+- Write efficient SQL queries.
+- Practice SQL using real-world examples.
+- Build mini database projects.
+- Document my learning consistently.
+
+---
+## 📂 Repository Structure
+
+```text
+mysql-learning-journey/
+│
+├── README.md
+├── Week-01/
+│   ├── README.md
+│   ├── day-01.md
+│   ├── day-02.md
+│   ├── day-03.md
+│   ├── day-04.md
+│   ├── day-05.md
+│   ├── day-06.md
+│   └── day-07.md
+│
+```
