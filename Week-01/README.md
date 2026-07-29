@@ -22,13 +22,13 @@ By the end of this week, I aim to:
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| Day 1 | Introduction to Databases & MySQL | ⏳ |
-| Day 2 | MySQL Architecture | ⏳ |
-| Day 3 | Creating Databases & Tables | ⏳ |
-| Day 4 | CRUD Operations (INSERT & SELECT) | ⏳ |
-| Day 5 | UPDATE, DELETE & ORDER BY | ⏳ |
-| Day 6 | Aggregate Functions | ⏳ |
-| Day 7 | GROUP BY & HAVING | ⏳ |
+| Day 1 | Introduction to Databases & MySQL | ✅ |
+| Day 2 | MySQL Architecture | ✅ |
+| Day 3 | Creating Databases & Tables | ✅ |
+| Day 4 | CRUD Operations (INSERT & SELECT) | ✅ |
+| Day 5 | UPDATE, DELETE & ORDER BY | ✅ |
+| Day 6 | Aggregate Functions | ✅ |
+| Day 7 | GROUP BY & HAVING | ✅ |
 
 ---
 
