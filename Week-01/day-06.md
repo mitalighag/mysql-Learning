@@ -1,94 +1,30 @@
-# Day 6 - Sorting Data and Aggregate Functions
+# Day 6 - Aggregate Functions
 
 ## 🎯 Learning Objectives
 
 By the end of this lesson, I will be able to:
 
-- Sort records using the `ORDER BY` clause.
-- Arrange data in ascending and descending order.
-- Use SQL aggregate functions to perform calculations.
+- Understand the purpose of SQL aggregate functions.
 - Count records using `COUNT()`.
 - Calculate totals using `SUM()`.
 - Find averages using `AVG()`.
-- Determine minimum and maximum values using `MIN()` and `MAX()`.
+- Determine minimum values using `MIN()`.
+- Determine maximum values using `MAX()`.
+- Perform basic data analysis using SQL.
 
 ---
 
 # 📖 Introduction
 
-Databases often contain thousands of records. To analyze data efficiently, SQL provides features for sorting records and performing calculations.
+Databases often store thousands or even millions of records. Instead of viewing every record individually, SQL provides **aggregate functions** that summarize data and produce meaningful insights.
 
-In this lesson, we will learn how to arrange data in a meaningful order and generate useful summaries using aggregate functions.
-
----
-
-# 📌 ORDER BY
-
-The `ORDER BY` clause is used to sort records in ascending or descending order.
-
-## Syntax
-
-```sql
-SELECT column_name
-FROM table_name
-ORDER BY column_name;
-```
-
-## Example
-
-```sql
-SELECT *
-FROM Patients
-ORDER BY Age;
-```
-
-This query displays patients sorted by age in ascending order.
-
-### 🌍 Real-world Example
-
-A hospital wants to display patients from the youngest to the oldest.
-
----
-
-# 📌 ASC (Ascending Order)
-
-The `ASC` keyword sorts records from the smallest to the largest value. It is the default sorting order.
-
-## Example
-
-```sql
-SELECT *
-FROM Patients
-ORDER BY Age ASC;
-```
-
-This query sorts patients by age from lowest to highest.
-
----
-
-# 📌 DESC (Descending Order)
-
-The `DESC` keyword sorts records from the largest to the smallest value.
-
-## Example
-
-```sql
-SELECT *
-FROM Patients
-ORDER BY Age DESC;
-```
-
-This query displays patients from the oldest to the youngest.
-
-### 🌍 Real-world Example
-
-A company wants to display employees with the highest salaries first.
+Aggregate functions perform calculations on multiple rows and return a single result. They are commonly used for reporting, analytics, and decision-making.
 
 ---
 
 # 📌 COUNT()
 
-The `COUNT()` function returns the total number of records.
+The `COUNT()` function returns the total number of records in a table or the number of non-NULL values in a column.
 
 ## Syntax
 
@@ -108,13 +44,20 @@ This query returns the total number of patients.
 
 ### 🌍 Real-world Example
 
-A hospital wants to know how many patients are currently registered.
+A hospital administrator wants to know how many patients are currently registered in the hospital database.
 
 ---
 
 # 📌 SUM()
 
-The `SUM()` function calculates the total of a numeric column.
+The `SUM()` function calculates the total value of a numeric column.
+
+## Syntax
+
+```sql
+SELECT SUM(column_name)
+FROM table_name;
+```
 
 ## Example
 
@@ -127,13 +70,20 @@ This query returns the total bill amount of all patients.
 
 ### 🌍 Real-world Example
 
-A hospital calculates the total revenue generated from patient bills.
+A hospital calculates its total revenue by adding all patient bill amounts.
 
 ---
 
 # 📌 AVG()
 
 The `AVG()` function calculates the average value of a numeric column.
+
+## Syntax
+
+```sql
+SELECT AVG(column_name)
+FROM table_name;
+```
 
 ## Example
 
@@ -146,13 +96,20 @@ This query returns the average age of all patients.
 
 ### 🌍 Real-world Example
 
-A school calculates the average marks of students.
+A school calculates the average marks of students to evaluate overall performance.
 
 ---
 
 # 📌 MIN()
 
 The `MIN()` function returns the smallest value in a column.
+
+## Syntax
+
+```sql
+SELECT MIN(column_name)
+FROM table_name;
+```
 
 ## Example
 
@@ -163,11 +120,22 @@ FROM Patients;
 
 This query returns the age of the youngest patient.
 
+### 🌍 Real-world Example
+
+A company wants to find the lowest salary among its employees.
+
 ---
 
 # 📌 MAX()
 
 The `MAX()` function returns the largest value in a column.
+
+## Syntax
+
+```sql
+SELECT MAX(column_name)
+FROM table_name;
+```
 
 ## Example
 
@@ -180,20 +148,38 @@ This query returns the age of the oldest patient.
 
 ### 🌍 Real-world Example
 
-A company wants to find the highest salary among its employees.
+A company wants to identify its highest-paid employee.
+
+---
+
+# 📌 Using Multiple Aggregate Functions
+
+Multiple aggregate functions can be used in a single query.
+
+## Example
+
+```sql
+SELECT
+COUNT(*) AS TotalPatients,
+AVG(Age) AS AverageAge,
+MIN(Age) AS YoungestPatient,
+MAX(Age) AS OldestPatient
+FROM Patients;
+```
+
+This query returns multiple statistics about the patient data in a single result.
 
 ---
 
 # 🔑 Key Takeaways
 
-- `ORDER BY` sorts records.
-- `ASC` sorts records in ascending order.
-- `DESC` sorts records in descending order.
+- Aggregate functions summarize data.
 - `COUNT()` returns the number of records.
 - `SUM()` calculates the total of numeric values.
 - `AVG()` calculates the average value.
 - `MIN()` returns the smallest value.
 - `MAX()` returns the largest value.
+- Multiple aggregate functions can be combined in one query.
 
 ---
 
@@ -201,30 +187,38 @@ A company wants to find the highest salary among its employees.
 
 ## Conceptual Questions
 
-1. What is the purpose of the `ORDER BY` clause?
-2. What is the difference between `ASC` and `DESC`?
-3. What does the `COUNT()` function return?
-4. When would you use the `SUM()` function?
-5. What is the difference between `MIN()` and `MAX()`?
+1. What is an aggregate function?
+2. What is the purpose of the `COUNT()` function?
+3. When would you use the `SUM()` function?
+4. What is the difference between `MIN()` and `MAX()`?
+5. Can multiple aggregate functions be used in a single query?
 
 ## Practical Questions
 
-### 1. Display all patients sorted by age in ascending order.
+### 1. Count the total number of patients.
 
-### 2. Display all patients sorted by age in descending order.
+```sql
+SELECT COUNT(*)
+FROM Patients;
+```
 
-### 3. Find the total number of patients.
+### 2. Find the total bill amount of all patients.
 
-### 4. Find the average age of patients.
+### 3. Find the average age of patients.
 
-### 5. Find the youngest patient.
+### 4. Find the youngest patient.
 
-### 6. Find the oldest patient.
+### 5. Find the oldest patient.
 
-### 7. Find the total of all patient bill amounts.
+### 6. Write a query that displays:
+
+- Total number of patients
+- Average age
+- Youngest patient
+- Oldest patient
 
 ---
 
 # 💭 Reflection
 
-Today, I learned how to organize records using the `ORDER BY` clause and summarize data using SQL aggregate functions. These functions make it easy to analyze large datasets and generate meaningful insights from stored information.
+Today, I learned how SQL aggregate functions summarize data and help generate useful insights from a database. Instead of viewing every record individually, I can now count records, calculate totals, find averages, and identify the minimum and maximum values using simple SQL queries.
