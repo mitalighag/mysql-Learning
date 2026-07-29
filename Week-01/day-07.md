@@ -4,25 +4,25 @@
 
 By the end of this lesson, I will be able to:
 
-- Group records using the `GROUP BY` clause.
+- Retrieve unique values using the `DISTINCT` keyword.
+- Group similar records using the `GROUP BY` clause.
 - Filter grouped results using the `HAVING` clause.
-- Retrieve unique values using `DISTINCT`.
-- Limit the number of records displayed using `LIMIT`.
-- Apply multiple SQL concepts to solve real-world problems.
+- Limit the number of rows returned using the `LIMIT` clause.
+- Combine multiple SQL clauses to write efficient queries.
 
 ---
 
 # 📖 Introduction
 
-As databases grow larger, simply retrieving records is often not enough. SQL provides powerful clauses that help organize, summarize, and filter data efficiently.
+As databases grow larger, retrieving every record is often unnecessary. SQL provides clauses that help organize, summarize, and filter data efficiently.
 
-In this lesson, we will learn how to group similar records, remove duplicate values, filter grouped data, and limit query results.
+In this lesson, I will learn how to retrieve unique values, group records, filter grouped data, and limit query results. These techniques are commonly used in reports and data analysis.
 
 ---
 
 # 📌 DISTINCT
 
-The `DISTINCT` keyword is used to retrieve only unique values from a column.
+The `DISTINCT` keyword is used to return only unique values from a column by removing duplicate entries.
 
 ## Syntax
 
@@ -42,13 +42,15 @@ This query displays each city only once, even if multiple patients belong to the
 
 ### 🌍 Real-world Example
 
-A hospital wants a list of all cities where its patients live without showing duplicate city names.
+A hospital wants to know the different cities where its patients live without displaying duplicate city names.
 
 ---
 
 # 📌 GROUP BY
 
-The `GROUP BY` clause groups rows that have the same values in a specified column.
+The `GROUP BY` clause groups rows that contain the same values in a specified column.
+
+It is commonly used with aggregate functions such as `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
 
 ## Syntax
 
@@ -66,7 +68,7 @@ FROM Patients
 GROUP BY City;
 ```
 
-This query displays the number of patients in each city.
+This query counts the number of patients from each city.
 
 ### 🌍 Real-world Example
 
@@ -76,7 +78,9 @@ A hospital wants to know how many patients belong to each city.
 
 # 📌 HAVING
 
-The `HAVING` clause filters grouped records after the `GROUP BY` operation.
+The `HAVING` clause filters grouped data after the `GROUP BY` operation.
+
+Unlike the `WHERE` clause, which filters individual rows, `HAVING` filters groups.
 
 ## Syntax
 
@@ -93,10 +97,10 @@ HAVING condition;
 SELECT City, COUNT(*)
 FROM Patients
 GROUP BY City
-HAVING COUNT(*) > 5;
+HAVING COUNT(*) > 2;
 ```
 
-This query displays only those cities that have more than five patients.
+This query displays only those cities that have more than two patients.
 
 ### 🌍 Real-world Example
 
@@ -128,36 +132,38 @@ This query displays only the first five patient records.
 
 ### 🌍 Real-world Example
 
-An administrator wants to preview only the first few records instead of displaying thousands of rows.
+An administrator wants to preview only a few records instead of displaying thousands of rows.
 
 ---
 
-# 📌 Combining Clauses
+# 📌 Combining SQL Clauses
 
 SQL clauses can be combined to create powerful queries.
 
 ## Example
 
 ```sql
-SELECT City, COUNT(*)
+SELECT City, COUNT(*) AS TotalPatients
 FROM Patients
 GROUP BY City
 HAVING COUNT(*) > 2
-ORDER BY COUNT(*) DESC;
+ORDER BY TotalPatients DESC
+LIMIT 3;
 ```
 
 This query:
 
 - Groups patients by city.
-- Counts patients in each city.
+- Counts the number of patients in each city.
 - Displays only cities with more than two patients.
 - Sorts the result in descending order.
+- Displays only the top three results.
 
 ---
 
 # 🌍 Mini Project
 
-Suppose the **Patients** table contains the following data:
+Assume the following data exists in the **Patients** table.
 
 | PatientID | Name | Age | City |
 |-----------|------|-----|------|
@@ -183,7 +189,7 @@ FROM Patients;
 Count the number of patients in each city.
 
 ```sql
-SELECT City, COUNT(*)
+SELECT City, COUNT(*) AS TotalPatients
 FROM Patients
 GROUP BY City;
 ```
@@ -195,7 +201,7 @@ GROUP BY City;
 Display cities having more than one patient.
 
 ```sql
-SELECT City, COUNT(*)
+SELECT City, COUNT(*) AS TotalPatients
 FROM Patients
 GROUP BY City
 HAVING COUNT(*) > 1;
@@ -215,46 +221,13 @@ LIMIT 3;
 
 ---
 
-# 📚 Week 1 Summary
-
-During Week 1, I learned the fundamentals of MySQL and SQL.
-
-### Topics Covered
-
-- Database Fundamentals
-- DBMS
-- RDBMS
-- SQL and MySQL
-- MySQL Architecture
-- CREATE DATABASE
-- USE
-- CREATE TABLE
-- Data Types
-- PRIMARY KEY
-- AUTO_INCREMENT
-- INSERT INTO
-- SELECT
-- WHERE
-- AND
-- OR
-- UPDATE
-- DELETE
-- ORDER BY
-- Aggregate Functions
-- DISTINCT
-- GROUP BY
-- HAVING
-- LIMIT
-
----
-
 # 🔑 Key Takeaways
 
 - `DISTINCT` removes duplicate values.
-- `GROUP BY` groups similar records.
+- `GROUP BY` groups records based on a column.
 - `HAVING` filters grouped results.
-- `LIMIT` restricts the number of returned rows.
-- SQL clauses can be combined to create powerful and efficient queries.
+- `LIMIT` restricts the number of rows returned.
+- SQL clauses can be combined to create efficient and meaningful queries.
 
 ---
 
@@ -263,10 +236,10 @@ During Week 1, I learned the fundamentals of MySQL and SQL.
 ## Conceptual Questions
 
 1. What is the purpose of the `DISTINCT` keyword?
-2. What is the difference between `WHERE` and `HAVING`?
-3. Why do we use the `GROUP BY` clause?
-4. What is the purpose of the `LIMIT` clause?
-5. Can `GROUP BY` be used with aggregate functions? Explain.
+2. What is the purpose of the `GROUP BY` clause?
+3. What is the difference between `WHERE` and `HAVING`?
+4. Why do we use the `LIMIT` clause?
+5. Can `GROUP BY` be used without aggregate functions?
 
 ## Practical Questions
 
@@ -274,33 +247,57 @@ During Week 1, I learned the fundamentals of MySQL and SQL.
 
 ### 2. Count the number of patients in each city.
 
-### 3. Display only cities having more than two patients.
+### 3. Display only cities having more than one patient.
 
-### 4. Display the first five records from the table.
+### 4. Display the first three records from the table.
 
-### 5. Display the number of patients in each city and sort the result in descending order.
+### 5. Display the number of patients in each city in descending order.
+
+---
+
+# 📚 Week 1 Summary
+
+During Week 1, I learned the fundamentals of MySQL and SQL, including:
+
+- Database Fundamentals
+- DBMS and RDBMS
+- SQL and MySQL
+- MySQL Architecture
+- Creating Databases and Tables
+- Data Types
+- Primary Keys
+- AUTO_INCREMENT
+- CRUD Operations
+- Sorting Data
+- Aggregate Functions
+- DISTINCT
+- GROUP BY
+- HAVING
+- LIMIT
+
+These concepts form the foundation for designing, managing, and querying relational databases.
 
 ---
 
 # 💭 Reflection
 
-This week, I learned the fundamentals of SQL and MySQL. I can now create databases and tables, insert, retrieve, update, and delete data, sort records, perform calculations using aggregate functions, and organize data using grouping techniques.
+This week, I built a strong foundation in SQL by learning how to create databases and tables, perform CRUD operations, sort records, analyze data using aggregate functions, and organize query results with grouping techniques.
 
-These concepts provide a strong foundation for writing SQL queries and preparing for advanced topics such as constraints, relationships, joins, and subqueries.
+These concepts have prepared me to learn advanced SQL topics such as constraints, relationships, joins, subqueries, and normalization in the coming weeks.
 
 ---
 
 # ⏭️ What's Next?
 
-In **Week 2**, I will explore advanced SQL concepts, including:
+In **Week 2**, I will continue my SQL journey by learning:
 
 - Constraints (`NOT NULL`, `UNIQUE`, `DEFAULT`, `CHECK`)
 - Foreign Keys
 - Relationships
-- Joins
+- SQL Joins
 - Subqueries
 - Views
 - Indexes
 - Normalization
 
-These topics will help me design relational databases and write more advanced SQL queries.
+These topics will help me build well-structured relational databases and write more advanced SQL queries.
