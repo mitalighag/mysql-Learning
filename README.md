@@ -41,7 +41,7 @@ mysql-learning-journey/
 | Week | Topics | Status |
 |------|--------|--------|
 | Week 1 | MySQL Fundamentals | Completed |
-| Week 2 | Coming Soon | 🚧 In Progress |
+| Week 2 | Advanced SQL – Constraints, Keys & Relationships | 🚧 In Progress |
 | Week 3 | Coming Soon | ⏳ |
 | Week 4 | Coming Soon | ⏳ |
 | Week 5 | Coming Soon | ⏳ |
