@@ -23,8 +23,8 @@ By the end of this week, I will be able to:
 
 | Day | Topic | Status |
 |-----|-------|--------|
-| Day 8 | Constraints (`NOT NULL`, `UNIQUE`, `DEFAULT`, `CHECK`) | ⏳ |
-| Day 9 | Primary Key vs Foreign Key | ⏳ |
+| Day 8 | Constraints (`NOT NULL`, `UNIQUE`, `DEFAULT`, `CHECK`) | ✅ |
+| Day 9 | Primary Key vs Foreign Key | ✅ |
 | Day 10 | Database Relationships | ⏳ |
 | Day 11 | INNER JOIN | ⏳ |
 | Day 12 | LEFT JOIN, RIGHT JOIN & FULL OUTER JOIN (Concept) | ⏳ |
